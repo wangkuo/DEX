@@ -23,13 +23,13 @@ chmod +x tbnbcli
 > 以下操作均为测试网络
 
 ### 创建 local keystore
-```
+```bash
 ./tbnbcli keys add test_key
 ```
 
 使用 `--from`参数来调用相应keystore，例如：
 
-```shell
+```bash
 ./tbnbcli send --chain-id=<chain-id> --from=test_key --amount=100:BNB --to=<address>
 ```
 
@@ -41,13 +41,13 @@ chmod +x tbnbcli
 
 列出当前key列表
 
-```
+```bash
 ./tbnbcli keys list
 ```
 
 通过助记词导入keystore
 
-```
+```bash
 ./tbnbcli keys add test_key --recover
 ```
 
@@ -79,13 +79,13 @@ https://www.binance.com/en/dex/testnet/address
 
 查询余额
 
-```
+```bash
 ./tbnbcli account tbnb1xn8vyswpv06a94llpgvmms8jk6t7g353z3umtc --chain-id Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --indent
 ```
 
 转账
 
-```
+```bash
 ./tbnbcli send --from test_key2 --to tbnb1t7ftfdsf6gncuwqu7wk9y7katr2ggvfk8j9nt2 --amount 10000000000:BNB --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --json --memo "Test transfer"
 ```
 
@@ -116,9 +116,11 @@ https://www.binance.com/en/dex/testnet/address
 
 
 
+可以到区块浏览器查寻到该比申请，并找到 proposal-id
+
 查询上线申请
 
-```
+```bash
 ./tbnbcli gov query-proposal --proposal-id 410 --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80
 ```
 
@@ -126,7 +128,7 @@ https://www.binance.com/en/dex/testnet/address
 
 交押金1000BNB
 
-```
+```bash
 ./tbnbcli gov deposit --from test_key --proposal-id 410 --deposit 100000000000:BNB --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80
 ```
 
@@ -136,7 +138,7 @@ https://www.binance.com/en/dex/testnet/address
 
 查询投票状态
 
-```
+```bash
 ./tbnbcli gov query-votes --proposal-id 410 --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80
 ```
 
@@ -144,7 +146,7 @@ https://www.binance.com/en/dex/testnet/address
 
 执行上线交易所命令（需要 proposal 状态为 Passed ）
 
-```
+```bash
 ./tbnbcli dex list -s EET-673 --quote-asset-symbol BNB --from test_key --init-price 100000000 --proposal-id 410 --chain-id=Binance-Chain-Nile --node=data-seed-pre-2-s1.binance.org:80 --json
 ```
 
